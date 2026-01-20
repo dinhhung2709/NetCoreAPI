@@ -1,0 +1,15 @@
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\bin\Debug\net10.0\NewProject.exe
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\bin\Debug\net10.0\NewProject.deps.json
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\bin\Debug\net10.0\NewProject.runtimeconfig.json
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\bin\Debug\net10.0\NewProject.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\bin\Debug\net10.0\NewProject.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.AssemblyInfoInputs.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.AssemblyInfo.cs
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.sourcelink.json
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\refint\NewProject.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.pdb
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\NewProject.genruntimeconfig.cache
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\NewProject\obj\Debug\net10.0\ref\NewProject.dll
