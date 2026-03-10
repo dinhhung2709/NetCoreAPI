@@ -96,3 +96,4 @@ C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\DemoMvcA
 C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\DemoMvcApp\obj\Debug\net10.0\DemoMvcApp.pdb
 C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\DemoMvcApp\obj\Debug\net10.0\DemoMvcApp.genruntimeconfig.cache
 C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\DemoMvcApp\obj\Debug\net10.0\ref\DemoMvcApp.dll
+C:\Users\ADMIN\OneDrive\Tài liệu\phattrienphanmemquanli\NetCoreAPI\DemoMvcApp\obj\Debug\net10.0\DemoMvcApp.csproj.AssemblyReference.cache
