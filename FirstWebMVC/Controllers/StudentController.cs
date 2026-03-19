@@ -29,6 +29,7 @@ namespace FirstWebMVC.Controllers
 
         // POST: CREATE
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Student std)
         {
             if (ModelState.IsValid)
@@ -37,6 +38,7 @@ namespace FirstWebMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(std);
         }
 
@@ -44,41 +46,70 @@ namespace FirstWebMVC.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var student = await _context.Students.FindAsync(id);
-            if (student == null) return NotFound();
+
+            if (student == null)
+            {
+                return View("NotFound");
+            }
+
             return View(student);
         }
 
         // POST: EDIT
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Student std)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Update(std);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(std);
             }
-            return View(std);
+
+            var student = await _context.Students.FindAsync(std.Id);
+
+            if (student == null)
+            {
+                return View("NotFound");
+            }
+
+            student.StudentCode = std.StudentCode;
+            student.FullName = std.FullName;
+            student.Age = std.Age;
+            student.Email = std.Email;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: DELETE
         public async Task<IActionResult> Delete(int id)
         {
             var student = await _context.Students.FindAsync(id);
-            if (student == null) return NotFound();
+
+            if (student == null)
+            {
+                return View("NotFound");
+            }
+
             return View(student);
         }
 
         // POST: DELETE
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var student = await _context.Students.FindAsync(id);
-            if (student != null)
+
+            if (student == null)
             {
-                _context.Students.Remove(student);
-                await _context.SaveChangesAsync();
+                return View("NotFound");
             }
+
+            _context.Students.Remove(student);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
     }

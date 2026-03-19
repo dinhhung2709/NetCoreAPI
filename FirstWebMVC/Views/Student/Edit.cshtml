@@ -4,30 +4,41 @@
 
 <form asp-action="Edit" method="post">
 
-    <!-- QUAN TRỌNG -->
+    <!-- QUAN TRỌNG: giữ Id -->
     <input type="hidden" asp-for="Id" />
+
+    <!-- Hiển thị lỗi tổng -->
+    <div asp-validation-summary="All" style="color:red"></div>
 
     <div>
         <label>Mã SV</label>
         <input asp-for="StudentCode" />
+        <span asp-validation-for="StudentCode" style="color:red"></span>
     </div>
 
     <div>
         <label>Tên</label>
         <input asp-for="FullName" />
+        <span asp-validation-for="FullName" style="color:red"></span>
     </div>
 
     <div>
         <label>Tuổi</label>
         <input asp-for="Age" />
+        <span asp-validation-for="Age" style="color:red"></span>
     </div>
 
     <div>
         <label>Email</label>
         <input asp-for="Email" />
+        <span asp-validation-for="Email" style="color:red"></span>
     </div>
 
     <button type="submit">Cập nhật</button>
 </form>
 
 <a href="/Student">Quay lại</a>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
