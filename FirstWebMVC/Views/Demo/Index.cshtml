@@ -2,6 +2,21 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Chào Thế Giới</h2>
 
 <p>Hello Nguyễn Đình Hưng - MSV: 2221050384 ! 2026</p> 
+
+<form asp-action="Index">
+    <label>Nhập họ tên:</label>
+    <input type="text" name="FullName" />
+
+    <label>Nhập địa chỉ:</label>
+    <input type="text" name="Address" />
+
+    <input type="submit" value="Gửi dữ liệu" />
+</form>
+<h2>@ViewBag.abc</h2>
+
+
+
+
+

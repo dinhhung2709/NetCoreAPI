@@ -1,0 +1,12 @@
+@model FirstWebMVC.Models.Student
+
+<h2>Bạn có chắc muốn xoá?</h2>
+
+<p>@Model.FullName</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Xoá</button>
+</form>
+
+<a href="/Student">Huỷ</a>
