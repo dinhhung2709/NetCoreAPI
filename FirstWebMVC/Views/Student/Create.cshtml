@@ -4,7 +4,7 @@
 
 <form asp-action="Create" method="post">
 
-    <!-- Hiển thị lỗi tổng -->
+
     <div asp-validation-summary="All" style="color:red"></div>
 
     <div>
@@ -31,7 +31,7 @@
         <span asp-validation-for="Email" style="color:red"></span>
     </div>
 
-    <!-- 🔥 PHẦN QUAN TRỌNG BUỔI 8 -->
+    
     <div>
         <label>Khoa</label>
         <select asp-for="FacultyID" asp-items="ViewBag.FacultyList">
