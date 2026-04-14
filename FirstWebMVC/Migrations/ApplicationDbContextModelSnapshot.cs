@@ -16,6 +16,21 @@ namespace FirstWebMVC.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.5");
 
+            modelBuilder.Entity("FirstWebMVC.Models.Faculty", b =>
+                {
+                    b.Property<int>("FacultyID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FacultyName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("FacultyID");
+
+                    b.ToTable("Faculties");
+                });
+
             modelBuilder.Entity("FirstWebMVC.Models.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -28,18 +43,40 @@ namespace FirstWebMVC.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("FacultyID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("StudentCode")
                         .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FacultyID");
+
                     b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("FirstWebMVC.Models.Student", b =>
+                {
+                    b.HasOne("FirstWebMVC.Models.Faculty", "Faculty")
+                        .WithMany("Students")
+                        .HasForeignKey("FacultyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Faculty");
+                });
+
+            modelBuilder.Entity("FirstWebMVC.Models.Faculty", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

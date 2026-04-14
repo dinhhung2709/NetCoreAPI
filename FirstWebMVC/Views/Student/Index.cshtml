@@ -1,31 +1,32 @@
-@model IEnumerable<FirstWebMVC.Models.Student>
+@model IEnumerable<FirstWebMVC.ViewModels.StudentVM>
 
 <h2>Danh sách sinh viên</h2>
 
 <a href="/Student/Create">➕ Thêm sinh viên</a>
 
 <table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Mã SV</th>
-        <th>Tên</th>
-        <th>Tuổi</th>
-        <th>Email</th>
-        <th>Hành động</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>Mã sinh viên</th>
+            <th>Họ tên</th>
+            <th>Khoa</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model)
-{
-    <tr>
-        <td>@item.Id</td>
-        <td>@item.StudentCode</td>
-        <td>@item.FullName</td>
-        <td>@item.Age</td>
-        <td>@item.Email</td>
-        <td>
-            <a href="/Student/Edit/@item.Id">Sửa</a> |
-            <a href="/Student/Delete/@item.Id">Xoá</a>
-        </td>
-    </tr>
-}
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StudentCode</td>
+                <td>@item.FullName</td>
+                <td>@item.FacultyName</td>
+
+                <td>
+                    <a href="/Student/Edit/@item.Id">Sửa</a> |
+                    <a href="/Student/Delete/@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

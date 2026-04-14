@@ -1,16 +1,36 @@
 using Microsoft.EntityFrameworkCore;
 using FirstWebMVC.Data;
+using FirstWebMVC.Models; 
+using System.Linq;        
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// ✅ DÙNG SQLITE (SỬA Ở ĐÂY)
+// ✅ DÙNG SQLITE
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
+
+// 🔥 SEED DATA Ở ĐÂY
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    if (!context.Faculties.Any())
+    {
+        context.Faculties.AddRange(
+            new Faculty { FacultyName = "Công nghệ thông tin" },
+            new Faculty { FacultyName = "Kinh tế" },
+            new Faculty { FacultyName = "Xây dựng" },
+            new Faculty { FacultyName = "Cơ khí" }
+        );
+
+        context.SaveChanges();
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

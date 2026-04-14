@@ -19,5 +19,11 @@ namespace FirstWebMVC.Models
 
         [EmailAddress(ErrorMessage = "Email không đúng định dạng")]
         public string? Email { get; set; }
+
+        //  thêm phần khóa ngoại Faculty  (Buổi 8)
+        [Required(ErrorMessage = "Vui lòng chọn khoa")]
+        public int FacultyID { get; set; }
+
+        public Faculty? Faculty { get; set; }
     }
 }

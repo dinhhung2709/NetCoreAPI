@@ -14,7 +14,7 @@
     </div>
 
     <div>
-        <label>Tên</label>
+        <label>Họ tên</label>
         <input asp-for="FullName" />
         <span asp-validation-for="FullName" style="color:red"></span>
     </div>
@@ -29,6 +29,15 @@
         <label>Email</label>
         <input asp-for="Email" />
         <span asp-validation-for="Email" style="color:red"></span>
+    </div>
+
+    <!-- 🔥 PHẦN QUAN TRỌNG BUỔI 8 -->
+    <div>
+        <label>Khoa</label>
+        <select asp-for="FacultyID" asp-items="ViewBag.FacultyList">
+            <option value="">-- Chọn khoa --</option>
+        </select>
+        <span asp-validation-for="FacultyID" style="color:red"></span>
     </div>
 
     <button type="submit">Lưu</button>
