@@ -1,0 +1,57 @@
+@model FirstWebMVC.Models.Order
+
+@{
+    ViewData["Title"] = "Tạo đơn hàng";
+}
+
+<h2>Tạo đơn hàng</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+
+        <form asp-action="Create" method="post">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <!-- OrderDate -->
+            <div class="form-group mb-3">
+                <label asp-for="OrderDate"></label>
+
+                <input asp-for="OrderDate"
+                       class="form-control"
+                       type="date" />
+
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+
+            <!-- Customer -->
+            <div class="form-group mb-3">
+                <label asp-for="CustomerId"></label>
+
+                <select asp-for="CustomerId"
+                        class="form-control"
+                        asp-items="ViewBag.CustomerId">
+
+                    <option value="">-- Chọn khách hàng --</option>
+
+                </select>
+
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group mt-3">
+                <input type="submit" value="Tạo đơn" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
