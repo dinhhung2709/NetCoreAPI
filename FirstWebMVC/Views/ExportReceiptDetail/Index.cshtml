@@ -1,0 +1,114 @@
+@model IEnumerable<FirstWebMVC.Models.ExportReceiptDetail>
+
+@{
+    ViewData["Title"] = "Danh sách chi tiết phiếu xuất";
+}
+
+<h1>Danh sách chi tiết phiếu xuất</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Thêm mới
+    </a>
+</p>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>STT</th>
+
+            <th>
+                Phiếu xuất
+            </th>
+
+            <th>
+                Thiết bị
+            </th>
+
+            <th>
+                Số lượng
+            </th>
+
+            <th>
+                Đơn giá xuất
+            </th>
+
+            <th>
+                Thành tiền
+            </th>
+
+            <th width="220px">
+                Chức năng
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+@{
+    int stt = 1;
+}
+
+@foreach (var item in Model)
+{
+        <tr>
+
+            <!-- STT -->
+            <td>
+                @stt
+            </td>
+
+            <!-- PHIẾU XUẤT -->
+            <td>
+                @item.ExportReceipt.Id
+            </td>
+
+            <!-- TÊN THIẾT BỊ -->
+            <td>
+                @item.Device.Name
+            </td>
+
+            <!-- SỐ LƯỢNG -->
+            <td>
+                @item.Quantity
+            </td>
+
+            <!-- ĐƠN GIÁ -->
+            <td>
+                @item.UnitPrice.ToString("N0") VNĐ
+            </td>
+
+            <!-- THÀNH TIỀN -->
+            <td>
+                @item.TotalPrice.ToString("N0") VNĐ
+            </td>
+
+            <!-- NÚT -->
+            <td>
+                <a asp-action="Edit"
+                   asp-route-id="@item.Id"
+                   class="btn btn-warning btn-sm">
+                    Edit
+                </a>
+
+                <a asp-action="Details"
+                   asp-route-id="@item.Id"
+                   class="btn btn-info btn-sm">
+                    Details
+                </a>
+
+                <a asp-action="Delete"
+                   asp-route-id="@item.Id"
+                   class="btn btn-danger btn-sm">
+                    Delete
+                </a>
+            </td>
+
+        </tr>
+
+    stt++;
+}
+
+    </tbody>
+</table>

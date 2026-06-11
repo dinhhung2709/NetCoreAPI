@@ -1,0 +1,62 @@
+@model IEnumerable<FirstWebMVC.Models.ExportReceipt>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Danh sách phiếu xuất</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Tạo phiếu xuất mới
+    </a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <!-- THÊM CỘT ID -->
+            <th>
+                ID
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ExportDate)
+            </th>
+
+            <th>
+                Chức năng
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <!-- HIỂN THỊ ID -->
+            <td>
+                @item.Id
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ExportDate)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">
+                    Edit
+                </a> |
+
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    Details
+                </a> |
+
+                <a asp-action="Delete" asp-route-id="@item.Id">
+                    Delete
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

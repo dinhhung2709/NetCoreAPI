@@ -4,6 +4,7 @@ using FirstWebMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FirstWebMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260528033247_AddDevice")]
+    partial class AddDevice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,7 +104,7 @@ namespace FirstWebMVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("ExportDate")
+                    b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -134,10 +137,6 @@ namespace FirstWebMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DeviceId");
-
-                    b.HasIndex("ExportReceiptId");
-
                     b.ToTable("ExportReceiptDetails");
                 });
 
@@ -167,15 +166,10 @@ namespace FirstWebMVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("ImportDate")
+                    b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("SupplierId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("SupplierId");
 
                     b.ToTable("ImportReceipts");
                 });
@@ -204,10 +198,6 @@ namespace FirstWebMVC.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DeviceId");
-
-                    b.HasIndex("ImportReceiptId");
 
                     b.ToTable("ImportReceiptDetails");
                 });
@@ -357,55 +347,6 @@ namespace FirstWebMVC.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("FirstWebMVC.Models.ExportReceiptDetail", b =>
-                {
-                    b.HasOne("FirstWebMVC.Models.Device", "Device")
-                        .WithMany()
-                        .HasForeignKey("DeviceId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("FirstWebMVC.Models.ExportReceipt", "ExportReceipt")
-                        .WithMany("ExportReceiptDetails")
-                        .HasForeignKey("ExportReceiptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Device");
-
-                    b.Navigation("ExportReceipt");
-                });
-
-            modelBuilder.Entity("FirstWebMVC.Models.ImportReceipt", b =>
-                {
-                    b.HasOne("FirstWebMVC.Models.Supplier", "Supplier")
-                        .WithMany()
-                        .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("FirstWebMVC.Models.ImportReceiptDetail", b =>
-                {
-                    b.HasOne("FirstWebMVC.Models.Device", "Device")
-                        .WithMany()
-                        .HasForeignKey("DeviceId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("FirstWebMVC.Models.ImportReceipt", "ImportReceipt")
-                        .WithMany("ImportReceiptDetails")
-                        .HasForeignKey("ImportReceiptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Device");
-
-                    b.Navigation("ImportReceipt");
-                });
-
             modelBuilder.Entity("FirstWebMVC.Models.Order", b =>
                 {
                     b.HasOne("FirstWebMVC.Models.Customer", "Customer")
@@ -450,19 +391,9 @@ namespace FirstWebMVC.Migrations
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("FirstWebMVC.Models.ExportReceipt", b =>
-                {
-                    b.Navigation("ExportReceiptDetails");
-                });
-
             modelBuilder.Entity("FirstWebMVC.Models.Faculty", b =>
                 {
                     b.Navigation("Students");
-                });
-
-            modelBuilder.Entity("FirstWebMVC.Models.ImportReceipt", b =>
-                {
-                    b.Navigation("ImportReceiptDetails");
                 });
 
             modelBuilder.Entity("FirstWebMVC.Models.Order", b =>

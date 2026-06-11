@@ -1,0 +1,85 @@
+@model FirstWebMVC.Models.ImportReceiptDetail
+
+@{
+    ViewData["Title"] = "Chi tiết phiếu nhập";
+}
+
+<h1>Chi tiết phiếu nhập</h1>
+
+<div>
+
+    <h4>Thông tin thiết bị nhập kho</h4>
+
+    <hr />
+
+    <dl class="row">
+
+        <!-- PHIẾU NHẬP -->
+        <dt class="col-sm-3">
+            Phiếu nhập
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.ImportReceiptId
+        </dd>
+
+        <!-- BƯỚC 9: HIỂN THỊ TÊN THIẾT BỊ -->
+        <dt class="col-sm-3">
+            Thiết bị
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.Device?.Name
+        </dd>
+
+        <!-- SỐ LƯỢNG -->
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <!-- ĐƠN GIÁ -->
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <!-- THÀNH TIỀN -->
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+    </dl>
+
+</div>
+
+<!-- NÚT CHỨC NĂNG -->
+<div>
+
+    <a asp-action="Edit"
+       asp-route-id="@Model?.Id"
+       class="btn btn-warning">
+
+        Chỉnh sửa
+
+    </a>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+
+        Quay lại danh sách
+
+    </a>
+
+</div>
+

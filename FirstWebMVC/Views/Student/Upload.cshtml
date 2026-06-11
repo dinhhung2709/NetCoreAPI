@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Upload Excel";
+}
+
+<h2>Upload File Excel - Import Student</h2>
+
+<hr />
+
+<form asp-action="UploadExcel" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label>Chọn file Excel</label>
+
+        <input type="file"
+               name="file"
+               class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        Upload
+    </button>
+
+</form>
+
+<hr />
+
+<h4>📌 File Excel phải có định dạng như sau:</h4>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>StudentCode</th>
+        <th>FullName</th>
+    </tr>
+
+    <tr>
+        <td>SV001</td>
+        <td>Nguyễn Văn A</td>
+    </tr>
+
+    <tr>
+        <td>SV002</td>
+        <td>Trần Thị B</td>
+    </tr>
+</table>
+
+<br />
+
+<p style="color:red;">
+    ⚠ Không thêm cột FacultyID trong file Excel
+</p>

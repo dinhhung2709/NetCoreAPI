@@ -1,0 +1,89 @@
+@model FirstWebMVC.Models.ImportReceiptDetail
+
+@{
+    ViewData["Title"] = "Xóa chi tiết phiếu nhập";
+}
+
+<h1>Xóa chi tiết phiếu nhập</h1>
+
+<h3 class="text-danger">
+    Bạn có chắc chắn muốn xóa dữ liệu này không?
+</h3>
+
+<div>
+
+    <h4>Thông tin thiết bị nhập kho</h4>
+
+    <hr />
+
+    <dl class="row">
+
+        <!-- PHIẾU NHẬP -->
+        <dt class="col-sm-3">
+            Phiếu nhập
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.ImportReceiptId
+        </dd>
+
+        <!-- BƯỚC 9: HIỂN THỊ TÊN THIẾT BỊ -->
+        <dt class="col-sm-3">
+            Thiết bị
+        </dt>
+
+        <dd class="col-sm-9">
+            @Model.Device?.Name
+        </dd>
+
+        <!-- SỐ LƯỢNG -->
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <!-- ĐƠN GIÁ -->
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <!-- THÀNH TIỀN -->
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+    </dl>
+
+    <!-- FORM XÓA -->
+    <form asp-action="Delete">
+
+        <input type="hidden" asp-for="Id" />
+
+        <!-- NÚT XÓA -->
+        <input type="submit"
+               value="Xóa"
+               class="btn btn-danger" />
+
+        <!-- QUAY LẠI -->
+        <a asp-action="Index"
+           class="btn btn-secondary">
+
+            Quay lại danh sách
+
+        </a>
+
+    </form>
+
+</div>
+

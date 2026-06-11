@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FirstWebMVC.Models
 {
@@ -6,8 +7,11 @@ namespace FirstWebMVC.Models
     {
         public int FacultyID { get; set; }
 
-        public string FacultyName { get; set; } = ""; // ✅ thêm = ""
+        [Required(ErrorMessage = "Tên khoa không được để trống")]
+        [StringLength(100)]
+        public string FacultyName { get; set; } = string.Empty;
 
-        public ICollection<Student> Students { get; set; } = new List<Student>(); // ✅ thêm khởi tạo
+        // navigation property
+        public ICollection<Student> Students { get; set; } = new List<Student>();
     }
 }
